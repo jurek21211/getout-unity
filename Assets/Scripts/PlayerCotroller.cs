@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PlayerCotroller : MonoBehaviour
 {
@@ -19,6 +21,8 @@ public class PlayerCotroller : MonoBehaviour
     public GameObject openedDoors;
     public Light flashlight;
     public Camera camera;
+    public Text healthText;
+    public Text batteriesText;
 
 
 
@@ -35,12 +39,14 @@ public class PlayerCotroller : MonoBehaviour
     {
         batteries = Random.Range(20, 80);
         health = Random.Range(50, 100);
+        updateTexts();
     }
 
 
     private void Update()
     {
         enhanceVision();
+        updateTexts();
     }
 
 
@@ -54,7 +60,7 @@ public class PlayerCotroller : MonoBehaviour
 
         turnToMousePointer();
 
-        if (health <= 0)
+        if (health <= 0 || transform.position.y < -10)
         {
             Die();
         }
@@ -120,6 +126,7 @@ public class PlayerCotroller : MonoBehaviour
             flashlight.spotAngle = 25f;
             camera.fieldOfView = 100f;
             batteries -= 4 * (Time.deltaTime);
+            updateTexts();
 
         }
         else
@@ -128,6 +135,7 @@ public class PlayerCotroller : MonoBehaviour
             flashlight.range = 20;
             flashlight.spotAngle = 15;
             camera.fieldOfView = 70;
+            updateTexts();
         }
 
 
@@ -148,6 +156,12 @@ public class PlayerCotroller : MonoBehaviour
     void Die()
     {
         Destroy(this.gameObject);
+    }
+
+    void updateTexts()
+    {
+        healthText.text = "HEALTH: " + health;
+        batteriesText.text = "BATTEIRES: " + batteries;
     }
 
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GunController : MonoBehaviour
 {
@@ -11,10 +12,12 @@ public class GunController : MonoBehaviour
     public GameObject gunBarrel;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
+    public Text ammunitionText;
 
     public void Start()
     {
         ammunition =  Random.Range(20, 35);
+        updateTexts();
     }
     public void Update()
     {
@@ -22,13 +25,19 @@ public class GunController : MonoBehaviour
         {
             
             Shoot();
+            
         }
+
+        updateTexts();
+
+
     }
 
     void Shoot()
     {
         damage = Random.Range(5, 12);
         ammunition -= 1;
+        updateTexts();
         muzzleFlash.Play();
         RaycastHit hit;
         if (Physics.Raycast(gunBarrel.transform.position, gunBarrel.transform.up, out hit, range) && ammunition >= 0)
@@ -65,5 +74,10 @@ public class GunController : MonoBehaviour
             ammunition += Random.Range(2, 6);
             Destroy(other.gameObject);
         }
+    }
+
+    void updateTexts()
+    {
+        ammunitionText.text = " AMMUNITION: " + ammunition;
     }
 }

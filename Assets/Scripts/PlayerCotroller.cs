@@ -146,7 +146,7 @@ public class PlayerCotroller : MonoBehaviour
         if (collision.gameObject.tag == "MeeleEnemy")
         {
 
-            health -= 5;
+            health -= 5 * (Time.deltaTime);
 
             playerRigidbody.AddForce(new Vector3(0, 0, 50f));
         }

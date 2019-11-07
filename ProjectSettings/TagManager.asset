@@ -11,6 +11,7 @@ TagManager:
   - Ammo
   - MeeleEnemy
   - Batteries
+  - Wall
   layers:
   - Default
   - TransparentFX

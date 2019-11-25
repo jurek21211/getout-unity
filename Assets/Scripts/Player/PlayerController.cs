@@ -8,12 +8,19 @@ public class PlayerController : MonoBehaviour
     public float dashSpeed;
     public float dashCooldownLimit;
     public float dashCooldown;
+    public float fireRate;
+    public float maxAmmunition;
+    public float currentAmmunition;
+
+    public GameObject shot;
+    public Transform shotSpawn;
 
     Vector3 movementVector;
     Animator animationController;
     Rigidbody playerRigidbody;
     int floorMask;
     float camRayLength = 1000f;
+    float nextFire;
     
 
     private void Start()
@@ -40,6 +47,7 @@ public class PlayerController : MonoBehaviour
         AnimatePlayer(horizontal, vertical, shoot);
         TurnToMousePointer();
         waitForCooldown();
+        Shoot(shoot);
     }
 
    void MovePlayer(float h, float v, float dash)
@@ -100,5 +108,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-  
+    void Shoot(float shoot)
+    {
+        if (shoot != 0 && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+
+        }
+
+    }
 }

@@ -9,9 +9,10 @@ TagManager:
   - Button
   - ClosedDoors
   - Ammo
-  - MeeleEnemy
   - Batteries
   - Wall
+  - Target
+  - Enemy
   layers:
   - Default
   - TransparentFX

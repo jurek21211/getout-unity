@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-            PracticeTarget target = FindObjectOfType<PracticeTarget>();
+            Enemy target = FindObjectOfType<Enemy>();
             target.TakeDamage(20);
         }
 

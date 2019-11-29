@@ -48,7 +48,7 @@ public class GunController : MonoBehaviour
 
             if (target != null)
             {
-                target.TakeDamage(damage);
+               // target.TakeDamage(damage);
             }
 
             MeeleEnemy enemy = hit.transform.GetComponent<MeeleEnemy>();

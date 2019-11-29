@@ -19,11 +19,13 @@ public class Flashlight : MonoBehaviour
     void enhanceFlashlight()
     {
         Light flashlight = GetComponentInChildren<Light>();
+        PlayerController player = FindObjectOfType<PlayerController>();
 
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKey(KeyCode.F) && player.currentBatteries > 0)
         {
             flashlight.range = enhancedRange;
             cam.orthographicSize = 450;
+            player.currentBatteries -= 5 * Time.deltaTime;
         }
         else
         {

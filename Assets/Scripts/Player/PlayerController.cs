@@ -9,8 +9,19 @@ public class PlayerController : MonoBehaviour
     public float dashCooldownLimit;
     public float dashCooldown;
     public float fireRate;
-    public float maxAmmunition;
-    public float currentAmmunition;
+
+    public int playerLevel;
+    public int maxHealth;
+    public int currentHealth;
+    public float maxBatteries;
+    public float currentBatteries;
+    public int maxAmmunition;
+    public int currentAmmunition;
+    public int maxBodyArmor;
+    public int currentBodyArmor;
+
+
+    public int currentExperiencePoints;
 
     public GameObject shot;
     public Transform shotSpawn;
@@ -26,6 +37,13 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         dashCooldown = dashCooldownLimit;
+        maxHealth = (playerLevel + 5) * 30;
+        currentHealth = maxHealth;
+        maxAmmunition = playerLevel * 10;
+        currentAmmunition = maxAmmunition;
+        maxBatteries = playerLevel * 20;
+        currentBatteries = maxBatteries;
+        maxBodyArmor = maxHealth / 2;
 
     }
     private void Awake()
@@ -71,7 +89,7 @@ public class PlayerController : MonoBehaviour
     void AnimatePlayer(float h, float v, float fire)
     {
         bool walking = v != 0f || h != 0;
-        bool shooting = fire != 0f;
+        bool shooting = fire != 0f && currentAmmunition > 0;
         animationController.SetBool("IsWalking", walking);
         animationController.SetBool("Shooting", shooting);
 
@@ -110,10 +128,11 @@ public class PlayerController : MonoBehaviour
 
     void Shoot(float shoot)
     {
-        if (shoot != 0 && Time.time > nextFire)
+        if (shoot != 0 && Time.time > nextFire && currentAmmunition > 0)
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            currentAmmunition -= 1;
 
         }
 

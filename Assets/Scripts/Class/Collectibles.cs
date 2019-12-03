@@ -12,6 +12,12 @@ public class Collectibles : MonoBehaviour
         else
             picked = false;
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+            picked = false;
+    }
     protected void Die()
     {
         Destroy(gameObject);

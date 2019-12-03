@@ -2,25 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Batteries : Collectibles
+public class Ammuniton : Collectibles
 {
     private void Update()
     {
-            updatePlayerAsset();
+        updatePlayerAsset();
     }
     void updatePlayerAsset()
     {
         int amount = 20;
         PlayerController player = FindObjectOfType<PlayerController>();
-        if (picked && player.currentBatteries < player.maxBatteries)
+        if (picked && player.currentAmmunition < player.maxAmmunition)
         {
-            if ((player.maxBatteries - player.currentBatteries) < amount)
+            if ((player.maxAmmunition - player.currentAmmunition) < amount)
             {
-                player.currentBatteries = player.maxBatteries;
+                player.currentAmmunition = player.maxAmmunition;
             }
             else
             {
-                player.currentBatteries += amount;
+                player.currentAmmunition += amount;
             }
             Die();
         }

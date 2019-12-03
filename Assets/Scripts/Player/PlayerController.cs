@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public int currentAmmunition;
     public int maxBodyArmor;
     public int currentBodyArmor;
+    public int healthPackages;
 
 
     public int currentExperiencePoints;

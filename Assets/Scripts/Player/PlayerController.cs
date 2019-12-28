@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public int maxBodyArmor;
     public int currentBodyArmor;
     public int healthPackages;
+    public int maxHealthPackages;
 
 
     public int currentExperiencePoints;
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
     int floorMask;
     float camRayLength = 1000f;
     float nextFire;
-    
+
 
     private void Start()
     {
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
         maxBatteries = playerLevel * 20;
         currentBatteries = maxBatteries;
         maxBodyArmor = maxHealth / 2;
+        maxHealthPackages = playerLevel + 2;
 
     }
     private void Awake()
@@ -67,9 +69,10 @@ public class PlayerController : MonoBehaviour
         TurnToMousePointer();
         waitForCooldown();
         Shoot(shoot);
+        useHealthPackage();
     }
 
-   void MovePlayer(float h, float v, float dash)
+    void MovePlayer(float h, float v, float dash)
     {
 
         movementVector.Set(h, 0f, v);
@@ -137,5 +140,25 @@ public class PlayerController : MonoBehaviour
 
         }
 
+    }
+    void useHealthPackage()
+    {
+        int healingValue = 20;
+        if (Input.GetKey(KeyCode.H))
+        {
+            if (healthPackages > 0 && currentHealth < maxHealth)
+            {
+                if ((maxHealth - currentHealth < healingValue))
+                {
+                    currentHealth = maxHealth;
+                    healthPackages -= 1;
+                }
+                else
+                {
+                    currentHealth += healingValue;
+                    healthPackages -= 1;
+                }
+            }
+        }
     }
 }

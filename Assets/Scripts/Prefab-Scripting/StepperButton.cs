@@ -7,6 +7,6 @@ public class StepperButton : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
-    //    Debug.Log(other.gameObject.name);
+        Debug.Log(other.gameObject.name);
     }
 }

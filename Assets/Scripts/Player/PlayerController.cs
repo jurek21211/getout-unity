@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
         currentBatteries = maxBatteries;
         maxBodyArmor = maxHealth / 2;
         maxHealthPackages = playerLevel + 2;
+        
 
     }
     private void Awake()
@@ -160,5 +161,10 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void TakeDamage(int amount)
+    {
+        currentHealth -= amount;
     }
 }

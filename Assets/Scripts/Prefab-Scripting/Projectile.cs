@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public float speed;
     Rigidbody projectileRgbd;
-    public float damage;
+    public int damage;
 
     void Start()
     {
@@ -24,8 +24,15 @@ public class Projectile : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-            Enemy target = FindObjectOfType<Enemy>();
-            target.TakeDamage(20);
+            Enemy target = collision.gameObject.GetComponent<Enemy>();
+            target.TakeDamage(50);
+        }
+
+        if (collision.gameObject.tag == "Player")
+        {
+            PlayerController target = collision.gameObject.GetComponent<PlayerController>();
+            target.TakeDamage(50);
+
         }
 
         Destroy(this.gameObject);

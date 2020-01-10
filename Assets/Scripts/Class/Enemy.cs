@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
 {
 
     public float lookRadius;
-    protected NavMeshAgent agent;
     public GameObject armor; //10%
     public GameObject healthPackage; //10%
     public GameObject ammunition; //15%
@@ -17,21 +16,9 @@ public class Enemy : MonoBehaviour
 
     protected PlayerController player;
 
-
-    private void Awake()
-    {
-    }
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();
-        agent = GetComponent<NavMeshAgent>();
-        
-    }
-
-    private void Update()
-    {
-        ChasePlayer(player);
-
     }
     void Die()
     {
@@ -61,16 +48,6 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
 
-    protected void ChasePlayer(PlayerController target)
-    {
-        float distance = Vector3.Distance(target.transform.position, transform.position);
-
-        if (distance < lookRadius)
-        {
-            faceTarget(player);
-            agent.SetDestination(target.transform.position);
-        }
-    }
 
 
     protected void faceTarget(PlayerController target)

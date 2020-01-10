@@ -25,14 +25,19 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Enemy target = collision.gameObject.GetComponent<Enemy>();
-            target.TakeDamage(50);
+            target.TakeDamage(damage);
         }
 
         if (collision.gameObject.tag == "Player")
         {
             PlayerController target = collision.gameObject.GetComponent<PlayerController>();
-            target.TakeDamage(50);
+            target.TakeDamage(damage);
 
+        }
+
+        if (transform.position.x > 4000)
+        {
+            Destroy(this.gameObject);
         }
 
         Destroy(this.gameObject);

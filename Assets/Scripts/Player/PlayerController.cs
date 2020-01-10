@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         TurnToMousePointer();
         waitForCooldown();
         Shoot(shoot);
-        useHealthPackage();
+        UseHealthPackage();
     }
 
     void MovePlayer(float h, float v, float dash)
@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-    void useHealthPackage()
+    void UseHealthPackage()
     {
         int healingValue = 20;
         if (Input.GetKey(KeyCode.H))

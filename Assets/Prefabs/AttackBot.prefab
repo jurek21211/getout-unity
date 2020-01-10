@@ -55,7 +55,7 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 20
+  m_Intensity: 40
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -192,10 +192,11 @@ MonoBehaviour:
   batteries: {fileID: 4471512748083705921, guid: df3a40847e4998b4b93f23d03002ce0f,
     type: 3}
   health: 200
+  fireRate: 0
+  stopDistance: 0
   shot: {fileID: 5445726971726365947, guid: 28cdf76cd07b6424e8b294f32855b137, type: 3}
   shotSpawnL: {fileID: 9096327433796971679}
   shotSpawnR: {fileID: 9096327434666543762}
-  fireRate: 0
 --- !u!195 &9096327433905502619
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -239,7 +240,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9096327433905502623}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -289,7 +290,7 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 20
+  m_Intensity: 40
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

@@ -7,7 +7,7 @@ public class Collectibles : MonoBehaviour
     protected bool picked = false;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
             picked = true;
         else
             picked = false;
@@ -15,7 +15,7 @@ public class Collectibles : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
             picked = false;
     }
     protected void Die()

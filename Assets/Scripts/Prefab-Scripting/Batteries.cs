@@ -6,9 +6,9 @@ public class Batteries : Collectibles
 {
     private void Update()
     {
-            updatePlayerAsset();
+            UpdatePlayerAsset();
     }
-    void updatePlayerAsset()
+    void UpdatePlayerAsset()
     {
         int amount = 20;
         PlayerController player = FindObjectOfType<PlayerController>();

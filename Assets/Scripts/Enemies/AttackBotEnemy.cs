@@ -11,11 +11,13 @@ public class AttackBotEnemy : Enemy
     private NavMeshAgent agent;
 
     private float nextFire;
+    private Vector3 startPosition;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         player = FindObjectOfType<PlayerController>();
+        startPosition = transform.position;
     }
 
     private void FixedUpdate()
@@ -40,7 +42,7 @@ public class AttackBotEnemy : Enemy
 
         if (distance < lookRadius)
         {
-            faceTarget(player);
+            FaceTarget(player);
             Shoot();
             agent.SetDestination(target.transform.position);
             
@@ -51,5 +53,11 @@ public class AttackBotEnemy : Enemy
             agent.SetDestination(transform.position);
             
         }
-    }
+        if (distance > abandonDistance)
+        {
+            agent.SetDestination(startPosition);
+
+            transform.LookAt(startPosition);
+        }
+        }
 }

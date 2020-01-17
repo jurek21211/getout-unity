@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     Animator animationController;
     Rigidbody playerRigidbody;
     int floorMask;
-    float camRayLength = 1000f;
+    readonly float camRayLength = 1000f;
     float nextFire;
 
 
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         MovePlayer(horizontal, vertical, dash);
         AnimatePlayer(horizontal, vertical, shoot);
         TurnToMousePointer();
-        waitForCooldown();
+        WaitForCooldown();
         Shoot(shoot);
         UseHealthPackage();
     }
@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void waitForCooldown()
+    private void WaitForCooldown()
     {
         if (dashCooldown < dashCooldownLimit)
         {
@@ -165,6 +165,18 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
+        if (currentBodyArmor > 0)
+        {
+            currentHealth -= (amount / 2);
+            currentBodyArmor -= ((amount / 4) * 3);
+            if (currentBodyArmor < 0)
+            {
+                currentBodyArmor = 0;
+            }
+        }
+        else
+        {
+            currentHealth -= amount;
+        }
     }
 }

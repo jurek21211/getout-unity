@@ -12,6 +12,7 @@ public class CyberSoldier : Enemy
     private bool isMoving, isAttacking;
     private Animator animator;
     private NavMeshAgent agent;
+
    
 
     private void Start()
@@ -36,7 +37,7 @@ public class CyberSoldier : Enemy
 
         if (distance < lookRadius)
         {
-            faceTarget(player);
+            FaceTarget(player);
 
             isMoving = true;
             isAttacking = false;
@@ -53,12 +54,12 @@ public class CyberSoldier : Enemy
         {
             isAttacking = false;
         }
-        if (distance  > lookRadius)
+        if (distance > abandonDistance)
         {
             agent.SetDestination(startPosition);
             
             transform.LookAt(startPosition);
-            if (startPointDistance < 15)
+            if (startPointDistance < 50)
             {
                 isMoving = false;
             }
@@ -77,7 +78,7 @@ public class CyberSoldier : Enemy
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             player.TakeDamage(damage);
         }

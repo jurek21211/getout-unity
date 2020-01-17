@@ -22,20 +22,20 @@ public class Projectile : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.CompareTag("Enemy") && gameObject.CompareTag("PlayerProjectile"))
         {
             Enemy target = collision.gameObject.GetComponent<Enemy>();
             target.TakeDamage(damage);
         }
 
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("EnemyProjectile"))
         {
             PlayerController target = collision.gameObject.GetComponent<PlayerController>();
             target.TakeDamage(damage);
 
         }
 
-        if (transform.position.x > 4000)
+        if (transform.position.x > 4000 || transform.position.z > 4000)
         {
             Destroy(this.gameObject);
         }

@@ -537,17 +537,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookRadius: 300
+  abandonDistance: 500
   armor: {fileID: 0}
   healthPackage: {fileID: 0}
   ammunition: {fileID: 0}
   batteries: {fileID: 0}
   health: 100
+  enemyLevel: 0
   stopDistance: 150
-  attackRate: 0
-  nextAttack: 0
   damage: 0
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
 --- !u!54 &4718292745869144129
 Rigidbody:
   m_ObjectHideFlags: 0

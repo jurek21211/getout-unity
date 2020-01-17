@@ -183,7 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62cc86b629be114389c6f92242189f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 500
+  lookRadius: 300
+  abandonDistance: 500
   armor: {fileID: 5945003177743402907, guid: b817b184a4385574b95d737434543f6b, type: 3}
   healthPackage: {fileID: 2227725982979479781, guid: 355dce868ea846e44b1f7a41e14408c9,
     type: 3}
@@ -192,6 +193,7 @@ MonoBehaviour:
   batteries: {fileID: 4471512748083705921, guid: df3a40847e4998b4b93f23d03002ce0f,
     type: 3}
   health: 200
+  enemyLevel: 0
   fireRate: 0
   stopDistance: 0
   shot: {fileID: 5445726971726365947, guid: 28cdf76cd07b6424e8b294f32855b137, type: 3}

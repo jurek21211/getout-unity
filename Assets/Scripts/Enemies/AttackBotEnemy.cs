@@ -19,7 +19,6 @@ public class AttackBotEnemy : Enemy
         player = FindObjectOfType<PlayerController>();
         startPosition = transform.position;
     }
-
     private void FixedUpdate()
     {
         ChasePlayer(player);
@@ -39,25 +38,24 @@ public class AttackBotEnemy : Enemy
     private void ChasePlayer(PlayerController target)
     {
         float distance = Vector3.Distance(target.transform.position, transform.position);
-
         if (distance < lookRadius)
         {
-            FaceTarget(player);
             Shoot();
+            FaceTarget(player);
             agent.SetDestination(target.transform.position);
-            
-
         }
-        if (distance <= stopDistance)
+
+       if (distance <= stopDistance)
         {
             agent.SetDestination(transform.position);
-            
+
         }
+
         if (distance > abandonDistance)
         {
             agent.SetDestination(startPosition);
 
             transform.LookAt(startPosition);
         }
-        }
+    }
 }

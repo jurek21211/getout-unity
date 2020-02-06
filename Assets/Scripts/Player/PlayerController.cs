@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         dashCooldown = dashCooldownLimit;
         maxHealth = (playerLevel + 5) * 30;
         currentHealth = maxHealth;
-        maxAmmunition = playerLevel * 10;
+        maxAmmunition = playerLevel * 10 + 30;
         currentAmmunition = maxAmmunition;
         maxBatteries = playerLevel * 20;
         currentBatteries = maxBatteries;

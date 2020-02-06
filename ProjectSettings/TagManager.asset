@@ -17,6 +17,8 @@ TagManager:
   - MeeleEnemy
   - EnemyProjectile
   - PlayerProjectile
+  - LevelBase
+  - LevelFloor
   layers:
   - Default
   - TransparentFX

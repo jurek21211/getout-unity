@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform target;
+    private Transform target;
 
     public float smoothness;
 
@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        target = FindObjectOfType<PlayerController>().transform;
         cameraOffset = transform.position - target.position;
     }
 

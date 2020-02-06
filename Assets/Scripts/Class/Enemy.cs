@@ -33,9 +33,11 @@ public class Enemy : MonoBehaviour
 
         if (this.health <= 0f)
         {
+            
             Die();
             GiveExperiencePoints();
             DropItem();
+
         }
     }
 
@@ -63,19 +65,19 @@ public class Enemy : MonoBehaviour
     {
         float itemClass = Random.Range(0, 100);
 
-        if (itemClass > 0 && itemClass < 10)
+        if (itemClass > 0 && itemClass < 20)
         {
             Instantiate(armor, new Vector3(transform.position.x, 25, transform.position.z), transform.rotation);
         }
-        else if (itemClass > 10 && itemClass < 20)
+        else if (itemClass > 20 && itemClass < 40)
         {
             Instantiate(healthPackage, new Vector3(transform.position.x, 25, transform.position.z), transform.rotation);
         }
-        else if (itemClass > 20 && itemClass < 35)
+        else if (itemClass > 40 && itemClass < 65)
         {
             Instantiate(batteries, new Vector3(transform.position.x, 25, transform.position.z), transform.rotation);
         }
-        else if (itemClass > 35 && itemClass < 50)
+        else if (itemClass > 65 && itemClass < 90)
         {
             Instantiate(ammunition, new Vector3(transform.position.x, 25, transform.position.z), transform.rotation);
         }

@@ -47,9 +47,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 843314486789957559}
+  - component: {fileID: 57730911147496974}
   m_Layer: 0
   m_Name: Armor
-  m_TagString: Untagged
+  m_TagString: Armor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,6 +70,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!136 &57730911147496974
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754899329296671781}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.2
+  m_Height: 0
+  m_Direction: 2
+  m_Center: {x: 0.000000059604645, y: 0.11276418, z: 1.8665183}
 --- !u!1001 &8824208333593412038
 PrefabInstance:
   m_ObjectHideFlags: 0

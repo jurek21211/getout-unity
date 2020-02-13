@@ -23,16 +23,16 @@ public class Spawner : MonoBehaviour
 
         Debug.Log(planeSize.x * -1);
 
-        spawnEnemies();
+        SpawnEnemies();
     }
     public Vector3 SetSpawnCords()
     {
         return new Vector3(Random.Range(-xBoundry, xBoundry), 3, Random.Range(-zBoundry, zBoundry));
     }
 
-   void spawnEnemies()
+   void SpawnEnemies()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 15; i++)
         {
             spawnCords = SetSpawnCords();
             if (Random.Range(-1.0f, 1.0f) > 0)

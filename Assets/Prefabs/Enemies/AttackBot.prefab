@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62cc86b629be114389c6f92242189f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 1000
+  lookRadius: 800
   abandonDistance: 1500
   armor: {fileID: 1754899329296671781, guid: b817b184a4385574b95d737434543f6b, type: 3}
   healthPackage: {fileID: 654985038569079462, guid: 8ec4319615f107742a2c777b70b74471,

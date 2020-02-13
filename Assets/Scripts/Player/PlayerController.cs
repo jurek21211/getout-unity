@@ -145,7 +145,7 @@ public class PlayerController : MonoBehaviour
     void UseHealthPackage()
     {
         int healingValue = 20;
-        if (Input.GetKey(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.H))
         {
             if (healthPackages > 0 && currentHealth < maxHealth)
             {

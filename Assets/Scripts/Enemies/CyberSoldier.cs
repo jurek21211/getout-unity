@@ -6,14 +6,19 @@ using UnityEngine.AI;
 public class CyberSoldier : Enemy
 {
 
-    public float stopDistance;
+    public float stopDistance, attackRange, attackRate, nextAttack;
     private Vector3 startPosition;
     public int damage;
+    public Transform attackPoint;
+    public LayerMask playerLayer;
+
+
     private bool isMoving, isAttacking;
     private Animator animator;
     private NavMeshAgent agent;
 
-   
+
+
 
     private void Start()
     {
@@ -21,7 +26,7 @@ public class CyberSoldier : Enemy
         player = FindObjectOfType<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
         startPosition = transform.position;
-        
+
     }
 
     private void FixedUpdate()
@@ -40,7 +45,6 @@ public class CyberSoldier : Enemy
             FaceTarget(player);
 
             isMoving = true;
-            isAttacking = false;
             agent.SetDestination(target.transform.position);
         }
 
@@ -48,7 +52,7 @@ public class CyberSoldier : Enemy
         {
             agent.SetDestination(transform.position);
             isMoving = false;
-            isAttacking = true;
+            Attack();
         }
         else
         {
@@ -57,7 +61,7 @@ public class CyberSoldier : Enemy
         if (distance > abandonDistance)
         {
             agent.SetDestination(startPosition);
-            
+
             transform.LookAt(startPosition);
             if (startPointDistance < 50)
             {
@@ -68,19 +72,32 @@ public class CyberSoldier : Enemy
     }
 
 
-
-
     void AnimateCyberSoldier()
     {
         animator.SetBool("isRunning", isMoving);
-        animator.SetBool("isAttacking", isAttacking);
     }
 
-    private void OnTriggerEnter(Collider other)
+    void Attack()
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (Time.time > nextAttack)
         {
-            player.TakeDamage(damage);
+            animator.Play("Punch");
+            nextAttack = Time.time + attackRate;
+
+            // Play attack animation
+
+            // Detect player in range of attack
+            Collider[] hitSphere = Physics.OverlapSphere(attackPoint.position, attackRange, playerLayer);
+
+            //Damage Player
+            foreach (Collider playerBody in hitSphere)
+            {
+                player.TakeDamage(damage);            
+            }
+
         }
+
+
     }
+
 }

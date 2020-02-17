@@ -13,7 +13,7 @@ public class CyberSoldier : Enemy
     public LayerMask playerLayer;
 
 
-    private bool isMoving, isAttacking;
+    private bool isMoving;
     private Animator animator;
     private NavMeshAgent agent;
 
@@ -54,10 +54,7 @@ public class CyberSoldier : Enemy
             isMoving = false;
             Attack();
         }
-        else
-        {
-            isAttacking = false;
-        }
+
         if (distance > abandonDistance)
         {
             agent.SetDestination(startPosition);

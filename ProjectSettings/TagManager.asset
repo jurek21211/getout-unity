@@ -19,6 +19,7 @@ TagManager:
   - PlayerProjectile
   - LevelBase
   - LevelFloor
+  - Controllers
   layers:
   - Default
   - TransparentFX

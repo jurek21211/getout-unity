@@ -3,7 +3,15 @@ guid: d8ce2cf364e392748b9cfe75d5c77c5a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - armor: {fileID: 1754899329296671781, guid: b817b184a4385574b95d737434543f6b, type: 3}
+  - healthPackage: {fileID: 654985038569079462, guid: 8ec4319615f107742a2c777b70b74471,
+      type: 3}
+  - ammunition: {fileID: 472015239282177000, guid: 432ce6284755460419a911b7da8369f3,
+      type: 3}
+  - batteries: {fileID: 2762399661605271534, guid: 642586fcc6aa44e439068ba07d5a6c1c,
+      type: 3}
+  - levelingController: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

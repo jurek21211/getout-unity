@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown;
     public float fireRate;
 
-    public int playerLevel;
     public int maxHealth;
     public int currentHealth;
     public float maxBatteries;
@@ -22,8 +21,7 @@ public class PlayerController : MonoBehaviour
     public int healthPackages;
     public int maxHealthPackages;
 
-
-    public int currentExperiencePoints;
+    public LevelingSystem levelingSystem;
 
     public GameObject shot;
     public Transform shotSpawn;
@@ -36,20 +34,6 @@ public class PlayerController : MonoBehaviour
     float nextFire;
 
 
-    private void Start()
-    {
-        dashCooldown = dashCooldownLimit;
-        maxHealth = (playerLevel + 5) * 30;
-        currentHealth = maxHealth;
-        maxAmmunition = playerLevel * 10 + 30;
-        currentAmmunition = maxAmmunition;
-        maxBatteries = playerLevel * 20;
-        currentBatteries = maxBatteries;
-        maxBodyArmor = maxHealth / 2;
-        maxHealthPackages = playerLevel + 2;
-        
-
-    }
     private void Awake()
     {
         floorMask = LayerMask.GetMask("Floor");

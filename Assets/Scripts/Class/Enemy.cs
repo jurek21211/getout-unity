@@ -12,24 +12,25 @@ public class Enemy : MonoBehaviour
     public GameObject ammunition; //15%
     public GameObject batteries; // 15%
 
-    LevelingSystem levelingSystem;
-    public GameObject levelingController;
+    public LevelingSystem levelingSystem;
 
 
-    public float health;
 
-    public int enemyLevel;
+    public int health;
 
-    private int experiencePointsForKill;
 
     protected PlayerController player;
-    
 
+    private void Awake()
+    {
+        levelingSystem = FindObjectOfType<LevelingSystem>();
+        
+    }
     private void Start()
     {
+        
         player = FindObjectOfType<PlayerController>();
-        enemyLevel = Random.Range(levelingSystem.enemiesCurrentLevel, levelingSystem.enemiesCurrentLevel + 1);
-        experiencePointsForKill = enemyLevel * 20;
+        
     }
     void Die()
     {
@@ -42,9 +43,12 @@ public class Enemy : MonoBehaviour
 
         if (this.health <= 0f)
         {
-            
+
+
+            levelingSystem.AddPointsForKill(levelingSystem.enemiesCurrentLevel * 20);
             Die();
             DropItem();
+            
         }
     }
 

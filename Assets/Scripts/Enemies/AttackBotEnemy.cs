@@ -18,6 +18,7 @@ public class AttackBotEnemy : Enemy
         agent = GetComponent<NavMeshAgent>();
         player = FindObjectOfType<PlayerController>();
         startPosition = transform.position;
+        health = 200 * levelingSystem.enemiesCurrentLevel / 2;
     }
     private void FixedUpdate()
     {

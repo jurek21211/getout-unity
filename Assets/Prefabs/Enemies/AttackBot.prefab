@@ -297,8 +297,8 @@ MonoBehaviour:
     type: 3}
   batteries: {fileID: 2762399661605271534, guid: 642586fcc6aa44e439068ba07d5a6c1c,
     type: 3}
-  health: 100
-  enemyLevel: 1
+  levelingSystem: {fileID: 0}
+  health: 0
   fireRate: 1.5
   stopDistance: 400
   shot: {fileID: 5445726971726365947, guid: 28cdf76cd07b6424e8b294f32855b137, type: 3}
@@ -315,7 +315,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 60
   m_Speed: 200
-  m_Acceleration: 80
+  m_Acceleration: 150
   avoidancePriority: 50
   m_AngularSpeed: 240
   m_StoppingDistance: 0

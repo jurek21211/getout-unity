@@ -4,24 +4,32 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Range(150, 400)]
     public float speed;
+    [Range(10, 20)]
     public float dashSpeed;
+    [Range(0, 10)]
     public float dashCooldownLimit;
-    public float dashCooldown;
+
+    
+    [Range(0, 3)]
     public float fireRate;
 
-    public int maxHealth;
-    public int currentHealth;
-    public float maxBatteries;
-    public float currentBatteries;
-    public int maxAmmunition;
-    public int currentAmmunition;
-    public int maxBodyArmor;
-    public int currentBodyArmor;
-    public int healthPackages;
-    public int maxHealthPackages;
+    public float dashCooldown;
 
-    public LevelingSystem levelingSystem;
+
+    public int maxHealth { get; set; }
+    public int currentHealth { get; set; }
+    public float maxBatteries { get; set; }
+    public float currentBatteries { get; set; }
+    public int maxAmmunition { get; set; }
+    public int currentAmmunition { get; set; }
+    public int maxBodyArmor { get; set; }
+    public int currentBodyArmor { get; set; }
+
+    public int maxHealthPackages { get; set; }
+    public int healthPackages { get; set; }
+
 
     public GameObject shot;
     public Transform shotSpawn;
@@ -42,6 +50,7 @@ public class PlayerController : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
 
     }
+
 
     private void FixedUpdate()
     {

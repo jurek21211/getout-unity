@@ -26,6 +26,7 @@ public class CyberSoldier : Enemy
         player = FindObjectOfType<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
         startPosition = transform.position;
+        health = 300 * levelingSystem.enemiesCurrentLevel / 2;
 
     }
 

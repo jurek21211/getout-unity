@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/RoomPrefabPreparationZone.unity
+    guid: daae6fa1a0af5154f8ecb8aacb0d06fb
   m_configObjects: {}

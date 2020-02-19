@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-
+    public LevelingSystem levelingSystem;
     public Vector3 planeSize, spawnCords;
     public float xScale, zScale, xBoundry, zBoundry;
     public Enemy cyberSoldier, attackBot;
-
+    public GameObject obstacle;
 
     private void Start()
     {
+        levelingSystem = FindObjectOfType<LevelingSystem>();
         GameObject plane = GameObject.FindGameObjectWithTag("LevelFloor");
         planeSize = plane.GetComponent<MeshRenderer>().bounds.size;
         xScale = GameObject.FindGameObjectWithTag("LevelBase").transform.localScale.x;
@@ -22,8 +23,11 @@ public class Spawner : MonoBehaviour
 
 
         Debug.Log(planeSize.x * -1);
+        SpawnObstacles();
 
         SpawnEnemies();
+        
+
     }
     public Vector3 SetSpawnCords()
     {
@@ -35,6 +39,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < 15; i++)
         {
             spawnCords = SetSpawnCords();
+            
             if (Random.Range(-1.0f, 1.0f) > 0)
             {
                 Instantiate(cyberSoldier, spawnCords, Quaternion.identity);
@@ -44,5 +49,15 @@ public class Spawner : MonoBehaviour
                 Instantiate(attackBot, spawnCords, Quaternion.identity);
             }
         }
+    }
+
+    void SpawnObstacles()
+    {
+      
+    }
+
+    void SpawnCollectibles()
+    {
+
     }
 }

@@ -5,10 +5,19 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed;
-    Rigidbody projectileRgbd;
+    private Rigidbody projectileRgbd;
+    [Range(10,50)]
     public int damage;
 
+    private LevelingSystem levelingSystem;
+
+    private void Awake()
+    {
+        levelingSystem = FindObjectOfType<LevelingSystem>();
+    }
+
     void Start()
+
     {
         projectileRgbd = GetComponent<Rigidbody>();
     }
@@ -25,13 +34,13 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") && gameObject.CompareTag("PlayerProjectile"))
         {
             Enemy target = collision.gameObject.GetComponent<Enemy>();
-            target.TakeDamage(damage);
+            target.TakeDamage(damage * levelingSystem.enemiesCurrentLevel);
         }
 
         if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("EnemyProjectile"))
         {
             PlayerController target = collision.gameObject.GetComponent<PlayerController>();
-            target.TakeDamage(damage);
+            target.TakeDamage(damage * levelingSystem.playerCurrentLevel );
 
         }
 
@@ -44,5 +53,5 @@ public class Projectile : MonoBehaviour
     }
 
 
-   
+
 }

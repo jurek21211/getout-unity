@@ -200,8 +200,8 @@ MonoBehaviour:
     type: 3}
   batteries: {fileID: 2762399661605271534, guid: 642586fcc6aa44e439068ba07d5a6c1c,
     type: 3}
-  health: 100
-  enemyLevel: 1
+  levelingSystem: {fileID: 0}
+  health: 0
   stopDistance: 50
   attackRange: 55
   attackRate: 2.5
@@ -235,7 +235,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 250
-  m_Acceleration: 80
+  m_Acceleration: 150
   avoidancePriority: 50
   m_AngularSpeed: 240
   m_StoppingDistance: 10

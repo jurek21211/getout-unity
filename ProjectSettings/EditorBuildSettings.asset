@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: 530bc9015f23ff045a90390721610fb2
   - enabled: 1
-    path: Assets/Scenes/RoomPrefabPreparationZone.unity
+    path: Assets/Scenes/Actual Game.unity
     guid: daae6fa1a0af5154f8ecb8aacb0d06fb
   m_configObjects: {}

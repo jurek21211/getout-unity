@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     public Enemy cyberSoldier, attackBot;
     public GameObject obstacle;
 
-   
+
 
     private void Start()
     {
@@ -28,20 +28,20 @@ public class Spawner : MonoBehaviour
         SpawnObstacles();
 
         SpawnEnemies();
-        
+
 
     }
     public Vector3 SetSpawnCords()
     {
-        return new Vector3(Random.Range(-xBoundry, xBoundry), 3, Random.Range(-zBoundry, zBoundry));
+        return new Vector3(Random.Range(-xBoundry, xBoundry), 2, Random.Range(-zBoundry, zBoundry));
     }
 
-   void SpawnEnemies()
+    void SpawnEnemies()
     {
         for (int i = 0; i < 15; i++)
         {
             spawnCords = SetSpawnCords();
-            
+
             if (Random.Range(-1.0f, 1.0f) > 0)
             {
                 Instantiate(cyberSoldier, spawnCords, Quaternion.identity);
@@ -55,7 +55,17 @@ public class Spawner : MonoBehaviour
 
     void SpawnObstacles()
     {
-      
+        for (int i = 0; i < 10; i++)
+        {
+            spawnCords = SetSpawnCords();
+            float scale = Random.Range(0.8f, 1.5f);
+            Debug.Log(scale);
+            GameObject clone = Instantiate(obstacle, spawnCords, Quaternion.identity);
+            clone.transform.localScale = new Vector3(clone.transform.localScale.x * scale, 
+                                                 clone.transform.localScale.y * scale,
+                                                 clone.transform.localScale.z * scale);
+ 
+        }
     }
 
     void SpawnCollectibles()

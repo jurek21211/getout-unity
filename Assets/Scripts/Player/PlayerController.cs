@@ -75,8 +75,8 @@ public class PlayerController : MonoBehaviour
         if (useHP)
             UseHealthPackage();
 
-        if (currentHealth <= 0)
-            Die();
+        if (currentHealth <= 0) { }
+          //  Die();
 
         MovePlayer(horizontal, vertical, dash);
         AnimatePlayer(horizontal, vertical, shoot);
@@ -189,7 +189,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Die()
+    /*public void Die()
     {
         isAlive = false;
         gameObject.SetActive(false);
@@ -197,5 +197,5 @@ public class PlayerController : MonoBehaviour
 
         Destroy(clone, 3f);
         Debug.Log("You are dead.");
-    }
+    }*/
 }

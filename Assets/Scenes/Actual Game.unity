@@ -2604,7 +2604,7 @@ MonoBehaviour:
     type: 3}
   attackBot: {fileID: 4565109243499615223, guid: a9876feca30679c479cacfaf7da9879d,
     type: 3}
-  obstacle: {fileID: 5176154798225959455, guid: cc8dd155aced6ce49bc2d9df48ae9b31,
+  obstacle: {fileID: 5025058714453478008, guid: d5b809bbee2631044adfb3ff7da1b564,
     type: 3}
 --- !u!20 &1091471136 stripped
 Camera:

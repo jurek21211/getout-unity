@@ -9,14 +9,14 @@ public class UIController : MonoBehaviour
     private PlayerController Player;
 
     public static bool GameIsPaused = false;
-    public GameObject pauseMenuUI, deathMenuUI, welcomeWindow;
+    public GameObject pauseMenuUI, deathMenuUI;
 
-    public Text Health, Ammo, Armor, Battery, HealthPackages;
+    public Text Health, Ammo, Armor, Battery, HealthPackages; 
 
     private void Start()
     {
         Player = FindObjectOfType<PlayerController>();
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
     }
 
     private void LateUpdate()
@@ -39,6 +39,7 @@ public class UIController : MonoBehaviour
         {
             DeathMenu();
         }
+
     }
 
     void UpdateTextFields()
@@ -86,12 +87,6 @@ public class UIController : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
-    }
-
-    public void CloseWelcomeWindow()
-    {
-        welcomeWindow.SetActive(false);
-        Time.timeScale = 1.0f;
     }
 }
 

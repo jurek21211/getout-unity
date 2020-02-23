@@ -10,7 +10,7 @@ public class Ammuniton : Collectibles
     }
     void updatePlayerAsset()
     {
-        int amount = 20;
+        int amount = 20 + (levelingSystem.playerCurrentLevel * 5);
         PlayerController player = FindObjectOfType<PlayerController>();
         if (picked && player.currentAmmunition < player.maxAmmunition)
         {

@@ -10,7 +10,7 @@ public class Batteries : Collectibles
     }
     void UpdatePlayerAsset()
     {
-        int amount = 20;
+        int amount = 20 + (levelingSystem.playerCurrentLevel * 5);
         PlayerController player = FindObjectOfType<PlayerController>();
         if (picked && player.currentBatteries < player.maxBatteries)
         {

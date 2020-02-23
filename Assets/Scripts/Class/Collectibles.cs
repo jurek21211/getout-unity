@@ -5,6 +5,13 @@ using UnityEngine;
 public class Collectibles : MonoBehaviour
 {
     protected bool picked = false;
+
+    public LevelingSystem levelingSystem { get; set; }
+
+    private void Awake()
+    {
+        levelingSystem = FindObjectOfType<LevelingSystem>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

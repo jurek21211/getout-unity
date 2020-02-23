@@ -6,15 +6,12 @@ public class HealthPackage : Collectibles
 {
     public int healingValue;
 
-    private void Start()
-    {
-        healingValue = Random.Range(25, 40);
-    }
     private void Update()
     {
         updatePlayerAsset();
-
     }
+
+
     void updatePlayerAsset()
     {
         int amount = 1;

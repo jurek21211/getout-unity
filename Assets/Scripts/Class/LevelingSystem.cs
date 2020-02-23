@@ -16,7 +16,7 @@ public class LevelingSystem : MonoBehaviour
     public void Start()
     {
         playerCurrentLevel = 1;
-        enemiesCurrentLevel = playerCurrentLevel;
+        enemiesCurrentLevel = 1; //wave number
 
 
         UpdatePlayerStats();

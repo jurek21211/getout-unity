@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
     {
         
         player = FindObjectOfType<PlayerController>();
+        health = 100 + levelingSystem.enemiesCurrentLevel * 20;
         
     }
     void Die()

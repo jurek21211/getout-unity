@@ -11,7 +11,7 @@ public class Armor : Collectibles
 
     void updatePlayerAsset()
     {
-        int amount = 15;
+        int amount = 15 + (levelingSystem.playerCurrentLevel * 5);
 
         PlayerController player = FindObjectOfType<PlayerController>();
         

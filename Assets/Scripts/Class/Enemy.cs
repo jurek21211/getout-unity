@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public GameObject healthPackage; //15%
     public GameObject ammunition; //15%
     public GameObject batteries; // 15%
+    public GameObject deathParticles;
 
     public LevelingSystem levelingSystem;
 
@@ -33,8 +34,12 @@ public class Enemy : MonoBehaviour
         
     }
     void Die()
-    {
+    {   
+       
         Destroy(gameObject);
+        GameObject clone = Instantiate(deathParticles, transform.position, Quaternion.identity);
+
+        Destroy(clone, 3f);
     }
 
     public void TakeDamage(int amount)

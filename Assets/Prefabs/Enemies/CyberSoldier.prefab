@@ -152,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 8774152244278131064}
   m_LocalRotation: {x: -8.861563e-12, y: 0.19508971, z: -4.4550072e-11, w: 0.98078537}
   m_LocalPosition: {x: -133.75752, y: 0.08333588, z: 499.9882}
-  m_LocalScale: {x: 60.5, y: 60.5, z: 60.5}
+  m_LocalScale: {x: 75, y: 75, z: 75}
   m_Children:
   - {fileID: 8774152245023213704}
   - {fileID: 8774152245734863801}
@@ -199,6 +199,8 @@ MonoBehaviour:
   ammunition: {fileID: 472015239282177000, guid: 432ce6284755460419a911b7da8369f3,
     type: 3}
   batteries: {fileID: 2762399661605271534, guid: 642586fcc6aa44e439068ba07d5a6c1c,
+    type: 3}
+  deathParticles: {fileID: 1850952211741991576, guid: dd8fdc06651db1f4eb9667a7ecc92942,
     type: 3}
   levelingSystem: {fileID: 0}
   health: 0

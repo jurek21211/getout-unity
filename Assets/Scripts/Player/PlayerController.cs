@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [Range(0, 10)]
     public float dashCooldownLimit;
 
-    
+
     [Range(0, 3)]
     public float fireRate;
 
@@ -30,16 +30,20 @@ public class PlayerController : MonoBehaviour
     public int maxHealthPackages { get; set; }
     public int healthPackages { get; set; }
 
+    public bool isAlive { get; set; }
 
-    public GameObject shot;
+
+    public GameObject shot, deathParticle;
     public Transform shotSpawn;
 
     Vector3 movementVector;
     Animator animationController;
     Rigidbody playerRigidbody;
+
     int floorMask;
     readonly float camRayLength = 1000f;
     float nextFire;
+
 
 
     private void Awake()
@@ -51,6 +55,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        isAlive = true;
+    }
 
     private void FixedUpdate()
     {
@@ -58,12 +66,22 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         float dash = Input.GetAxis("Jump");
         float shoot = Input.GetAxis("Fire1");
+
+        bool useHP = Input.GetKeyDown(KeyCode.H);
+
+        if (shoot != 0)
+            Shoot(shoot);
+
+        if (useHP)
+            UseHealthPackage();
+
+        if (currentHealth <= 0)
+            Die();
+
         MovePlayer(horizontal, vertical, dash);
         AnimatePlayer(horizontal, vertical, shoot);
         TurnToMousePointer();
         WaitForCooldown();
-        Shoot(shoot);
-        UseHealthPackage();
     }
 
     void MovePlayer(float h, float v, float dash)
@@ -137,23 +155,21 @@ public class PlayerController : MonoBehaviour
     }
     void UseHealthPackage()
     {
-        int healingValue = 20;
-        if (Input.GetKeyDown(KeyCode.H))
+        int healingValue = 20 + (FindObjectOfType<LevelingSystem>().playerCurrentLevel * 5); ;
+        if (healthPackages > 0 && currentHealth < maxHealth)
         {
-            if (healthPackages > 0 && currentHealth < maxHealth)
+            if ((maxHealth - currentHealth < healingValue))
             {
-                if ((maxHealth - currentHealth < healingValue))
-                {
-                    currentHealth = maxHealth;
-                    healthPackages -= 1;
-                }
-                else
-                {
-                    currentHealth += healingValue;
-                    healthPackages -= 1;
-                }
+                currentHealth = maxHealth;
+                healthPackages -= 1;
+            }
+            else
+            {
+                currentHealth += healingValue;
+                healthPackages -= 1;
             }
         }
+
     }
 
     public void TakeDamage(int amount)
@@ -171,5 +187,15 @@ public class PlayerController : MonoBehaviour
         {
             currentHealth -= amount;
         }
+    }
+
+    public void Die()
+    {
+        isAlive = false;
+        gameObject.SetActive(false);
+        GameObject clone = Instantiate(deathParticle, transform.position, Quaternion.identity);
+
+        Destroy(clone, 3f);
+        Debug.Log("You are dead.");
     }
 }

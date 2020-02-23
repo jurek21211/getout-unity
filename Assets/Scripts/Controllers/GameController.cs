@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    
+    public bool showingWelcomeWindow { get; set; }
+
+
 }

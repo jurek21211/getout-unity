@@ -3201,7 +3201,7 @@ Transform:
   m_GameObject: {fileID: 2168394062990856002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 2168394062991020922}
   - {fileID: 2168394062991020828}
@@ -3278,6 +3278,8 @@ MonoBehaviour:
   fireRate: 0.3
   dashCooldown: 0
   shot: {fileID: 1884086363848183843, guid: 0b2df42ed84c868439c25c55084cc440, type: 3}
+  deathParticle: {fileID: 1850952211741991576, guid: dd8fdc06651db1f4eb9667a7ecc92942,
+    type: 3}
   shotSpawn: {fileID: 2168394063075499559}
 --- !u!1 &2168394062990856004
 GameObject:

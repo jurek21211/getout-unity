@@ -10,6 +10,8 @@ public class Spawner : MonoBehaviour
     public Enemy cyberSoldier, attackBot;
     public GameObject obstacle;
 
+   
+
     private void Start()
     {
         levelingSystem = FindObjectOfType<LevelingSystem>();

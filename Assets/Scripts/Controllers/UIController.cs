@@ -9,20 +9,21 @@ public class UIController : MonoBehaviour
     private PlayerController Player;
 
     public static bool GameIsPaused = false;
-    public GameObject pauseMenuUI;
+    public GameObject pauseMenuUI, deathMenuUI, welcomeWindow;
 
     public Text Health, Ammo, Armor, Battery, HealthPackages;
 
     private void Start()
     {
         Player = FindObjectOfType<PlayerController>();
+        Time.timeScale = 0f;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         UpdateTextFields();
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && deathMenuUI.activeSelf == false)
         {
             if (GameIsPaused)
             {
@@ -32,6 +33,11 @@ public class UIController : MonoBehaviour
             {
                 Pause();
             }
+        }
+
+        if (Player.isAlive == false)
+        {
+            DeathMenu();
         }
     }
 
@@ -59,6 +65,13 @@ public class UIController : MonoBehaviour
         GameIsPaused = true;
     }
 
+    void DeathMenu()
+    {
+        Time.timeScale = 0f;
+        deathMenuUI.SetActive(true);
+ 
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -66,8 +79,19 @@ public class UIController : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    }
+
+    public void CloseWelcomeWindow()
+    {
+        welcomeWindow.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 }
 

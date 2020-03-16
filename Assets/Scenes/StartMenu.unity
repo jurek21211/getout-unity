@@ -1012,7 +1012,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 34322ca60057b9440b82d72493cf3893, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1714,7 +1714,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ULTRA
+  m_text: VERY HIGH
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -1783,10 +1783,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 333305707}
-    characterCount: 5
+    characterCount: 9
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -10886,6 +10886,7 @@ MonoBehaviour:
     type: 3}
   deathParticles: {fileID: 0}
   levelingSystem: {fileID: 0}
+  gameController: {fileID: 0}
   health: 0
   fireRate: 1.5
   stopDistance: 400
@@ -11279,6 +11280,7 @@ MonoBehaviour:
     type: 3}
   deathParticles: {fileID: 0}
   levelingSystem: {fileID: 0}
+  gameController: {fileID: 0}
   health: 0
   stopDistance: 50
   attackRange: 55

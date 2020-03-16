@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public GameObject deathParticles;
 
     public LevelingSystem levelingSystem;
+    public GameController gameController;
 
 
 
@@ -25,6 +26,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         levelingSystem = FindObjectOfType<LevelingSystem>();
+        gameController = FindObjectOfType<GameController>();
         
     }
     private void Start()
@@ -39,6 +41,8 @@ public class Enemy : MonoBehaviour
        
         Destroy(gameObject);
         GameObject clone = Instantiate(deathParticles, transform.position, Quaternion.identity);
+        gameController.playerKillCount += 1;
+        gameController.enemiesToKill -= 1;
 
         Destroy(clone, 3f);
     }
@@ -85,11 +89,11 @@ public class Enemy : MonoBehaviour
         {
             Instantiate(healthPackage, new Vector3(transform.position.x, 25, transform.position.z), transform.rotation);
         }
-        else if (itemClass > 40 && itemClass < 65)
+        else if (itemClass > 40 && itemClass < 55)
         {
             Instantiate(batteries, new Vector3(transform.position.x, 25, transform.position.z), transform.rotation);
         }
-        else if (itemClass > 65 && itemClass < 90)
+        else if (itemClass > 55 && itemClass < 90)
         {
             Instantiate(ammunition, new Vector3(transform.position.x, 25, transform.position.z), transform.rotation);
         }

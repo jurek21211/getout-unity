@@ -14,28 +14,7 @@ public class OptionsMenu : MonoBehaviour
 
     private void Start()
     {
-        resolutions = Screen.resolutions;
-
-        resolutionDropdown.ClearOptions();
-
-        List<string> options = new List<string>();
-
-        int currentResolutionIndex = 0;
-        for (int idx = 0; idx < resolutions.Length; idx++)
-        {
-            string option = resolutions[idx].width + "x" + resolutions[idx].height;
-            options.Add(option);
-
-            if(resolutions[idx].width == Screen.currentResolution.width &&
-                resolutions[idx].height == Screen.currentResolution.height)
-            {
-                currentResolutionIndex = idx;
-            }
-        }
-
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
+        FillResolutionsDropDown();
     }
     public void SetVolume(float volumeValue)
     {
@@ -56,6 +35,35 @@ public class OptionsMenu : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+
+    private void FillResolutionsDropDown()
+    {
+        resolutions = Screen.resolutions;
+
+        resolutionDropdown.ClearOptions();
+
+        List<string> options = new List<string>();
+
+        int currentResolutionIndex = 0;
+        for (int idx = 0; idx < resolutions.Length; idx++)
+        {
+            if (resolutions[idx].refreshRate == 60)
+            {
+                string option = resolutions[idx].width + "x" + resolutions[idx].height;
+                options.Add(option);
+
+                if (resolutions[idx].width == Screen.currentResolution.width &&
+                    resolutions[idx].height == Screen.currentResolution.height)
+                {
+                    currentResolutionIndex = idx;
+                }
+            }
+        }
+
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentResolutionIndex;
+        resolutionDropdown.RefreshShownValue();
     }
 
 }

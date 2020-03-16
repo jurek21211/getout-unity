@@ -6,17 +6,20 @@ public class LevelingSystem : MonoBehaviour
 {
     public int playerCurrentLevel, playerExperiencePoints, nextLevelExperiencePoints, enemiesCurrentLevel, playerSkillPoints;
     public PlayerController player;
+    public GameController gameController { get; set; }
 
 
     public void Awake()
     {
         player = FindObjectOfType<PlayerController>();
+        
     }
 
     public void Start()
     {
+        gameController = FindObjectOfType<GameController>();
         playerCurrentLevel = 1;
-        enemiesCurrentLevel = 1; //wave number
+        enemiesCurrentLevel = gameController.waveNumber; //wave number
 
 
         UpdatePlayerStats();
@@ -27,7 +30,10 @@ public class LevelingSystem : MonoBehaviour
 
     public void Update()
     {
-        LevelPlayerUP();
+        if (playerExperiencePoints >= nextLevelExperiencePoints)
+        {
+            LevelPlayerUP();
+        }
     }
 
     public void AddPointsForKill(int amount)
@@ -38,23 +44,23 @@ public class LevelingSystem : MonoBehaviour
 
     void LevelPlayerUP()
     {
-        if(playerExperiencePoints >= nextLevelExperiencePoints)
-        {
-            playerCurrentLevel += 1;
-            UpdatePlayerStats();
-            SetNewExperiencePointsGoal();
-            playerSkillPoints += 1;
-        }
+
+        playerCurrentLevel += 1;
+        UpdatePlayerStats();
+        SetNewExperiencePointsGoal();
+        playerSkillPoints += 1;
+
     }
-    void SetNewExperiencePointsGoal() {
-       
+    void SetNewExperiencePointsGoal()
+    {
+
         if (playerCurrentLevel < 5)
         {
             nextLevelExperiencePoints += playerCurrentLevel * 100;
         }
         else
         {
-            nextLevelExperiencePoints += (int) Mathf.Pow(playerCurrentLevel, 2f) * 50;
+            nextLevelExperiencePoints += (int)Mathf.Pow(playerCurrentLevel, 2f) * 50;
         }
 
 

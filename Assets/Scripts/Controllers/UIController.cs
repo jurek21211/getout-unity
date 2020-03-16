@@ -7,16 +7,22 @@ using UnityEngine.SceneManagement;
 public class UIController : MonoBehaviour
 {
     private PlayerController Player;
+    private LevelingSystem levelingSystem { get; set; }
 
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI, deathMenuUI;
+    public GameController gameController;
 
-    public Text Health, Ammo, Armor, Battery, HealthPackages; 
+
+    public Text Health, Ammo, Armor, Battery, HealthPackages, Wave, PlayerLevel, PlayerExp, NextLevelExp, EnemiesLeft;
+
+
 
     private void Start()
     {
         Player = FindObjectOfType<PlayerController>();
         Time.timeScale = 1f;
+        levelingSystem = FindObjectOfType<LevelingSystem>();
     }
 
     private void LateUpdate()
@@ -49,7 +55,11 @@ public class UIController : MonoBehaviour
         Ammo.text = "Ammunition: " + Player.currentAmmunition + " / " + Player.maxAmmunition;
         Battery.text = "Flashlight Energy: " + Mathf.RoundToInt(Player.currentBatteries) + " / " + Player.maxBatteries;
         HealthPackages.text = "Health Packages: " + Player.healthPackages + " / " + Player.maxHealthPackages;
-
+        Wave.text = "Wave: " + gameController.waveNumber;
+        PlayerLevel.text = "Level: " + levelingSystem.playerCurrentLevel;
+        PlayerExp.text = "EXP Points: " + levelingSystem.playerExperiencePoints;
+        NextLevelExp.text = "Next Level: " + levelingSystem.nextLevelExperiencePoints;
+        EnemiesLeft.text = "Enemies Left: " + gameController.enemiesToKill;
     }
 
     public void Resume()
@@ -70,7 +80,7 @@ public class UIController : MonoBehaviour
     {
         Time.timeScale = 0f;
         deathMenuUI.SetActive(true);
- 
+
     }
 
     public void QuitGame()

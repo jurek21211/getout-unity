@@ -14,7 +14,7 @@ public class UIController : MonoBehaviour
     public GameController gameController;
 
 
-    public Text Health, Ammo, Armor, Battery, HealthPackages, Wave, PlayerLevel, PlayerExp, NextLevelExp, EnemiesLeft;
+    public Text Health, Ammo, Armor, Battery, HealthPackages, Wave, PlayerLevel, PlayerExp, NextLevelExp, EnemiesLeft, GetReadyText;
 
 
 
@@ -44,6 +44,15 @@ public class UIController : MonoBehaviour
         if (Player.isAlive == false)
         {
             DeathMenu();
+        }
+
+        if ( gameController.enemiesToKill == 0)
+        {
+            GetReadyText.gameObject.SetActive(true);
+        }
+        else
+        {
+            GetReadyText.gameObject.SetActive(false);
         }
 
     }
@@ -96,7 +105,6 @@ public class UIController : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
     }
 }
 

@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     private Time time;
 
     private int numberOfObstacles;
-    private bool onGoingWave;
+    public bool onGoingWave;
 
 
 
@@ -73,9 +73,6 @@ public class GameController : MonoBehaviour
 
             onGoingWave = true;
         }
-
-
-
     }
 
 

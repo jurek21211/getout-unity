@@ -95,7 +95,6 @@ public class Spawner : MonoBehaviour
             {
                 Instantiate(attackBot, spawnPoints[spawnIdx].transform.position + offset, Quaternion.identity);
             }
-
             spawnIdx += 1;
             enemiesToSpawn -= 1;
 

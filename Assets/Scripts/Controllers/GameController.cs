@@ -47,7 +47,6 @@ public class GameController : MonoBehaviour
     {
         spawner.CreateSpawnPoints();
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
-        Debug.Log(spawnPoints[0].transform.position);
         spawner.SpawnObstacles(numberOfObstacles, spawnPoints);
 
     }

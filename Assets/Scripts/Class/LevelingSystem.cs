@@ -12,7 +12,7 @@ public class LevelingSystem : MonoBehaviour
     public void Awake()
     {
         player = FindObjectOfType<PlayerController>();
-        
+
     }
 
     public void Start()
@@ -33,6 +33,11 @@ public class LevelingSystem : MonoBehaviour
         if (playerExperiencePoints >= nextLevelExperiencePoints)
         {
             LevelPlayerUP();
+        }
+
+        if (enemiesCurrentLevel != gameController.waveNumber)
+        {
+            UpdateEnemiesLevel();
         }
     }
 
@@ -84,7 +89,10 @@ public class LevelingSystem : MonoBehaviour
         player.healthPackages = player.maxHealthPackages;
     }
 
-    void UpdateEnemiesLevel() { }
+    void UpdateEnemiesLevel()
+    {
+        enemiesCurrentLevel = gameController.waveNumber;
+    }
 
     void InitiateEnemiesLevel() { }
 

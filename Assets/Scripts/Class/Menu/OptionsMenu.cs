@@ -21,7 +21,7 @@ public class OptionsMenu : MonoBehaviour
         masterAudioMixer.SetFloat("Volume", volumeValue);
     }
 
-    public void SetQuality (int qualityIndex)
+    public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
     }
@@ -35,6 +35,7 @@ public class OptionsMenu : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        Debug.Log(resolutionIndex);
     }
 
     private void FillResolutionsDropDown()
@@ -48,17 +49,17 @@ public class OptionsMenu : MonoBehaviour
         int currentResolutionIndex = 0;
         for (int idx = 0; idx < resolutions.Length; idx++)
         {
-            if (resolutions[idx].refreshRate == 60)
-            {
-                string option = resolutions[idx].width + "x" + resolutions[idx].height;
-                options.Add(option);
+            string option = resolutions[idx].width + "x" 
+                + resolutions[idx].height + " " 
+                + resolutions[idx].refreshRate + "Hz";
+            options.Add(option);
 
-                if (resolutions[idx].width == Screen.currentResolution.width &&
-                    resolutions[idx].height == Screen.currentResolution.height)
-                {
-                    currentResolutionIndex = idx;
-                }
+            if (resolutions[idx].width == Screen.currentResolution.width &&
+                resolutions[idx].height == Screen.currentResolution.height)
+            {
+                currentResolutionIndex = idx;
             }
+
         }
 
         resolutionDropdown.AddOptions(options);

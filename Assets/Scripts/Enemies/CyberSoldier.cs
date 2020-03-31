@@ -45,29 +45,24 @@ public class CyberSoldier : Enemy
         if (distance < lookRadius)
         {
             FaceTarget(player);
-
             isMoving = true;
             agent.SetDestination(target.transform.position);
         }
-
         if (distance <= stopDistance)
         {
             agent.SetDestination(transform.position);
             isMoving = false;
             Attack();
         }
-
         if (distance > abandonDistance)
         {
             agent.SetDestination(startPosition);
-
             transform.LookAt(startPosition);
             if (startPointDistance < 50)
             {
                 isMoving = false;
             }
         }
-
     }
 
 
@@ -82,21 +77,14 @@ public class CyberSoldier : Enemy
         {
             animator.Play("Punch");
             nextAttack = Time.time + attackRate;
-
-            // Play attack animation
-
             // Detect player in range of attack
             Collider[] hitSphere = Physics.OverlapSphere(attackPoint.position, attackRange, playerLayer);
-
             //Damage Player
             foreach (Collider playerBody in hitSphere)
             {
                 player.TakeDamage(damage);            
             }
-
         }
-
-
     }
 
 }

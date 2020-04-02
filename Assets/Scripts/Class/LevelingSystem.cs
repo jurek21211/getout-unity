@@ -65,7 +65,7 @@ public class LevelingSystem : MonoBehaviour
         }
         else
         {
-            nextLevelExperiencePoints += (int)Mathf.Pow(playerCurrentLevel, 2f) * 50;
+            nextLevelExperiencePoints += (int)Mathf.Pow(playerCurrentLevel, 2f) * 25;
         }
 
 

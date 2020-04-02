@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
         {
 
 
-            levelingSystem.AddPointsForKill(levelingSystem.enemiesCurrentLevel * 20);
+            levelingSystem.AddPointsForKill(levelingSystem.enemiesCurrentLevel * 50);
             Die();
             DropItem();
             

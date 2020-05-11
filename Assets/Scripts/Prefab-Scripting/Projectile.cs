@@ -44,10 +44,6 @@ public class Projectile : MonoBehaviour
 
         }
 
-        if (transform.position.x > 1000 || transform.position.z > 1000)
-        {
-            Destroy(this.gameObject);
-        }
 
         Destroy(this.gameObject);
     }

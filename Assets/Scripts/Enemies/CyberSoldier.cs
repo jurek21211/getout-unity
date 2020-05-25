@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class CyberSoldier : Enemy
 {
 
+
     public float stopDistance, attackRange, attackRate, nextAttack;
     private Vector3 startPosition;
     public int damage;

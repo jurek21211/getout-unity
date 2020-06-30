@@ -34,13 +34,13 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") && gameObject.CompareTag("PlayerProjectile"))
         {
             Enemy target = collision.gameObject.GetComponent<Enemy>();
-            target.TakeDamage(damage * levelingSystem.enemiesCurrentLevel);
+            target.TakeDamage(damage * levelingSystem.playerCurrentLevel);
         }
 
         if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("EnemyProjectile"))
         {
             PlayerController target = collision.gameObject.GetComponent<PlayerController>();
-            target.TakeDamage(damage * levelingSystem.playerCurrentLevel );
+            target.TakeDamage(damage * levelingSystem.enemiesCurrentLevel );
 
         }
 

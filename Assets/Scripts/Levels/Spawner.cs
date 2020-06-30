@@ -112,7 +112,7 @@ public class Spawner : MonoBehaviour
 
         while (obstaclesToSpawn > 0)
         {
-            offset = new Vector3(Random.Range(-250f, 250f), 0, Random.Range(-250f, 250f));
+            offset = new Vector3(Random.Range(-350f, 350f), 0, Random.Range(-350f, 350f));
 
             //setting new offset for new obstacle, so they dont overlap each other
             while (Physics.OverlapSphere(spawnPoints[spawnIdx].transform.position + offset, 200, obstaclesLayer).Length != 0)
